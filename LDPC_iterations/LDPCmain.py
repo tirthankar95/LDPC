@@ -1,12 +1,10 @@
 import numpy as np
 import Global as Global
+import HG as hg
 import time
 import warnings
-
+import random
 H=[]
-def init():
-    global H
-    H=np.array([[1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1],[1,0,1,0,1,0,1,0],[0,1,0,1,0,1,0,1]])
 
 def MIN(L):
     (r,c)=L.shape
@@ -62,9 +60,9 @@ if __name__=='__main__':
     if Global.NoWarnings==True:
         warnings.filterwarnings("ignore")
     #...
-    init() #This function will load the H matrix.
     np.random.seed(int(time.time()))
-
+    msg=[[random.randint(0,1) for i in range(Global.k)] for j in range(Global.MX_ITER)]
+    H,msg=hg.encode(msg)
     print('Successfully Compiled.')
     #...
 

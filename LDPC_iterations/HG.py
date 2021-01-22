@@ -27,8 +27,8 @@ def encode(msg):
                 msg[iter]=np.append(msg[iter],parity[i])
                 i=i+1
     msg=np.array(msg)
-    Zzz=np.dot(H,msg[0].T)%2
+    Zzz=np.dot(H,msg.T)%2
     if np.all(Zzz==0):
-        print('Correct')
-    else: print('Incorrect')
+        print('HG Operation Correct.')
+    else: print('HG Operation Incorrect.')
     return H,msg
