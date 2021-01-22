@@ -1,5 +1,5 @@
 # LDPC
 `This file contains`
-* Previous LDPC codes( The techniques used for filling patents ).
-* Reinforcement Learning Code.
+* This branch only contains code for figuring out optimal 
+  number of iterations for particular code sizes. 
 
