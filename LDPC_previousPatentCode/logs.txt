@@ -1,0 +1,55 @@
+/home/tirthankar-mittra/anaconda3/lib/python3.7/site-packages/distributed/dashboard/core.py:79: UserWarning: 
+Port 8787 is already in use. 
+Perhaps you already have a cluster running?
+Hosting the diagnostics dashboard on a random port instead.
+  warnings.warn("\n" + msg)
+Correct
+--- 1 ---
+--- 2 ---
+--- 3 ---
+--- 4 ---
+--- 5 ---
+--- 6 ---
+--- 7 ---
+--- 8 ---
+--- 9 ---
+distributed.nanny - WARNING - Restarting worker
+distributed.nanny - WARNING - Restarting worker
+distributed.nanny - WARNING - Restarting worker
+distributed.nanny - WARNING - Restarting worker
+distributed.nanny - WARNING - Worker process still alive after 3 seconds, killing
+distributed.nanny - WARNING - Worker process still alive after 3 seconds, killing
+distributed.nanny - WARNING - Worker process still alive after 3 seconds, killing
+distributed.nanny - WARNING - Worker process still alive after 3 seconds, killing
+
+real	2m48.809s
+user	2m58.790s
+sys	0m4.360s
+Correct
+--- 1 ---
+--- 2 ---
+--- 3 ---
+--- 4 ---
+--- 5 ---
+--- 6 ---
+--- 7 ---
+--- 8 ---
+--- 9 ---
+
+real	1m15.279s
+user	1m7.329s
+sys	0m0.160s
+Correct
+--- 1  ~  Thread-1 ---
+--- 2  ~  Thread-2 ---
+--- 3  ~  Thread-3 ---
+--- 4  ~  Thread-4 ---
+--- 5  ~  Thread-5 ---
+--- 6  ~  Thread-6 ---
+--- 7  ~  Thread-7 ---
+--- 8  ~  Thread-8 ---
+--- 9  ~  Thread-9 ---
+
+real	1m24.648s
+user	1m30.221s
+sys	0m2.354s
