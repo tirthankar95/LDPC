@@ -5,6 +5,7 @@ import time
 import warnings
 import random
 H=[];l_intrinsic=[];Mat=[]
+sigmas=[0.1,0.3,0.5,0.7,0.9]
 
 def MIN(L):
     (r,c)=L.shape
@@ -24,6 +25,7 @@ def MIN(L):
                 L[i,j]=minS
     L[L==999]=np.nan
     return L
+
 def mod(codeword1):
     codeword=codeword1.copy()
     indx0=np.where(codeword==0)
@@ -62,10 +64,6 @@ def LDPC(): #Min Sum Decoder.
             TMP=demod(lin)[0]
             TMP=[int(x) for x in TMP]
             print('After LDPC codeword  -> ',TMP)
-        elif Global.DBG==True:
-            TMP=demod(lin)[0]
-            TMP=np.array([int(x) for x in TMP])
-            print('After LDPC codeword  -> ',TMP)
     return iter_arr
 
 if __name__=='__main__':
@@ -83,13 +81,15 @@ if __name__=='__main__':
         np.random.seed(int(time.time()))
         msg=[[random.randint(0,1) for i in range(Global.K)] for j in range(Global.MX_MSG)]
         H,msg=hg.encode(msg)
-        l_intrinsic=mod(msg)+np.random.normal(0,Global.SIGMA,(Global.MX_MSG,Global.N))#Passing it through Transmitter and adding White noise.
-        if Global.DBG==True:
-            randIndex=np.random.randint(0,Global.MX_MSG)
-            l_intrinsic=l_intrinsic[randIndex].reshape(1,Global.N)
-            print('Before LDPC codeword -> ',msg[randIndex])
-            print('Iterations = ',LDPC())
-        else:
-            print('Iterations = ', LDPC())
+        srcFile=open('plot.txt','a')
+        print('%d:{' % (Global.N),file=srcFile,end='')
+        for index,value in enumerate(sigmas):
+            Global.SIGMA=value
+            # Passing it through Transmitter and adding White noise.
+            l_intrinsic=mod(msg)+np.random.normal(0,Global.SIGMA,(Global.MX_MSG,Global.N))
+            if index==len(sigmas)-1: print('%lf:%d'%(Global.SIGMA,Global.mode(LDPC())),file=srcFile,end='')
+            else: print('%lf:%d,'%(Global.SIGMA,Global.mode(LDPC())),file=srcFile,end='')
+        print('},',file=srcFile)
+        srcFile.close()
     print('Successfully Compiled.')
     #...
