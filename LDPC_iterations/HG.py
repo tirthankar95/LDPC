@@ -2,8 +2,8 @@ import numpy as np
 import Global
 
 def encode(msg):
-    K=Global.k
-    N=Global.n
+    K=Global.K
+    N=Global.N
     H=np.array([])
     with open('Parity.txt') as f:
         lines=f.readlines()
