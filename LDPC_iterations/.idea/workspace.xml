@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c6e6690-92ca-4688-89d1-21f7df6618c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/.idea/LDPC_iterations.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LDPC_iterations/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/GH.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/GH.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/Generator.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/Global.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/HG.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/LDPCmain.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/Parity.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LDPC_iterations/folderico-green.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GH.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GH.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GH.exe" beforeDir="false" afterPath="$PROJECT_DIR$/GH.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Global.py" beforeDir="false" afterPath="$PROJECT_DIR$/Global.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plot3D.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plot3D.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

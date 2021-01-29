@@ -7,7 +7,9 @@ data={
 };
 x=[];y=[];z=[]
 l_styles = ['-','--','-.',':']
-m_styles = ['','.','o','^','*']
+l_color_styles=['crimson','deepskyblue','darkgreen','firebrick','black']
+m_styles = ['o','^','*']
+cmap_styles=['Greens','Greens','Greens','Blues','Blues','Blues','Reds','Reds','Reds']
 
 fig = plt.figure()
 ax = plt.axes(projection='3d')
@@ -16,7 +18,17 @@ for k,v in data.items():
         x.append(k)
         y.append(kchild)
         z.append(vchild)
-ax.scatter3D(x,y,z,c=z,cmap='viridis')
+
+
+ITER=len(data)
+plotSize=len(z)//ITER
+offset=0
+for i in range(ITER):
+    ax.plot3D(x[offset:(i+1)*plotSize],y[offset:(i+1)*plotSize],z[offset:(i+1)*plotSize],
+              linestyle=l_styles[i%len(l_styles)],color=l_color_styles[i%len(l_color_styles)])
+    ax.scatter3D(x[offset:(i+1)*plotSize],y[offset:(i+1)*plotSize],z[offset:(i+1)*plotSize],c=z[offset:(i+1)*plotSize]
+                 ,s=100,cmap=cmap_styles[i%len(cmap_styles)],edgecolor='black',linewidth=1,marker=m_styles[i%len(m_styles)])
+    offset+=plotSize
 ax.set_xlabel('Codeword Size.')
 ax.set_ylabel('Noise Variance.')
 ax.set_zlabel('No. Of Iterations.')

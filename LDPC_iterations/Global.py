@@ -1,7 +1,7 @@
 MX_ITER=25
 MX_MSG=10
 #initial number of groups of 3.
-Z=2
+Z=1
 N=68*Z
 K=(68-46)*Z
 NoWarnings=True

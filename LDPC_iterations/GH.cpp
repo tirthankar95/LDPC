@@ -3,7 +3,7 @@ using namespace std;
 typedef vector<int> VI;
 typedef vector<VI> VVI;
 int BG1[46][68]={0};
-const int Z=2;
+const int Z=1;
 const int Zmax=383;
 int mat[Z][Z]={0};
 int H[46*Z][68*Z]={0}; // (n-k)*(k+(n-k))
