@@ -4,6 +4,7 @@ import HG as hg
 import time
 import warnings
 import random
+import math
 H=[];l_intrinsic=[];Mat=[]
 sigmas=[0.1,0.3,0.5,0.7,0.9]
 
@@ -64,6 +65,7 @@ def LDPC(): #Min Sum Decoder.
             TMP=demod(lin)[0]
             TMP=[int(x) for x in TMP]
             print('After LDPC codeword  -> ',TMP)
+    print(Global.SIGMA,iter_arr)
     return iter_arr
 
 if __name__=='__main__':
@@ -81,15 +83,25 @@ if __name__=='__main__':
         np.random.seed(int(time.time()))
         msg=[[random.randint(0,1) for i in range(Global.K)] for j in range(Global.MX_MSG)]
         H,msg=hg.encode(msg)
-        srcFile=open('plot.txt','a')
-        print('%d:{' % (Global.N),file=srcFile,end='')
+        srcFile1=open('plotAvg.txt','a')
+        srcFile2=open('plotMax.txt','a')
+        print('%d:{' % (Global.N),file=srcFile1,end='')
+        print('%d:{' % (Global.N),file=srcFile2,end='')
         for index,value in enumerate(sigmas):
             Global.SIGMA=value
+            snr=10*math.log10(1/(value**2))
             # Passing it through Transmitter and adding White noise.
             l_intrinsic=mod(msg)+np.random.normal(0,Global.SIGMA,(Global.MX_MSG,Global.N))
-            if index==len(sigmas)-1: print('%lf:%d'%(Global.SIGMA,Global.mode(LDPC())),file=srcFile,end='')
-            else: print('%lf:%d,'%(Global.SIGMA,Global.mode(LDPC())),file=srcFile,end='')
-        print('},',file=srcFile)
-        srcFile.close()
+            arrTmp = LDPC()
+            if index==len(sigmas)-1:
+                print('%lf:%d'%(snr,Global.mode(arrTmp)),file=srcFile1,end='')
+                print('%lf:%d'%(snr, Global.max(arrTmp)),file=srcFile2, end='')
+            else:
+                print('%lf:%d,'%(snr,Global.mode(arrTmp)),file=srcFile1,end='')
+                print('%lf:%d,'%(snr,Global.max(arrTmp)),file=srcFile2,end='')
+        print('},',file=srcFile1)
+        print('},',file=srcFile2)
+        srcFile1.close()
+        srcFile2.close()
     print('Successfully Compiled.')
     #...

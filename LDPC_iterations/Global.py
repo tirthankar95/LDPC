@@ -1,7 +1,7 @@
-MX_ITER=25
+MX_ITER=15
 MX_MSG=10
 #initial number of groups of 3.
-Z=1
+Z=15
 N=68*Z
 K=(68-46)*Z
 NoWarnings=True
@@ -25,3 +25,9 @@ def mode(arr):
             res=k
     return res
 
+def max(arr):
+    mx=-1
+    for x in arr:
+        if mx<x and x!=MX_ITER:
+            mx=x
+    return mx
