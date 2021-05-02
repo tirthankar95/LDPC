@@ -6,7 +6,8 @@ def encode(msg):
     K=Global.k
     N=Global.n
     H=np.array([])
-    with open('Parity.txt') as f:
+    Pname='Parity_'+str(Global.n)+'.txt'
+    with open(Pname) as f:
         lines=f.readlines()
         for line in lines:
             myarr=np.fromstring(line,dtype=float,sep=" ")
@@ -17,7 +18,8 @@ def encode(msg):
     n_=len(msg)
     for iter in range(n_):
         parity = np.array([0 for i in range(N - K)])
-        with open('Generator.txt') as f:
+        Gname = 'Generator_' + str(Global.n) + '.txt'
+        with open(Gname) as f:
             lines=f.readlines()
             i=0
             for line in lines:
