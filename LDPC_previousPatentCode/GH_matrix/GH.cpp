@@ -3,22 +3,9 @@ using namespace std;
 typedef vector<int> VI;
 typedef vector<VI> VVI;
 int BG1[46][68]={0};
-const int Z=2;
+const int Z=50;
 int mat[Z][Z]={0};
 int H[46*Z][68*Z]={0}; // (n-k)*(k+(n-k))
-//BG1 
-//	1. iLS=0
-/*
-int BG1[46][68]={
-{250,69,226,159,-1,100,10,-1,-1,59,229,110,191,9,-1,195,23,-1,190,35,239,31,1,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-{2,-1,239,117,124,71,-1,222,104,173,-1,220,102,-1,109,132,142,155,-1,255,-1,28,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-{...},
-{...},
-{...},
-...
-};
-*/
-
 void print(FILE* file,VVI& A){
 	int n=A.size();
 	for(register int i=0;i<n;i++)
@@ -88,7 +75,11 @@ int main(){
 					H[Z*i+i_][Z*j+j_]=mat[i_][j_];
 		}
 	}//end of outer-for.
-	file=fopen("Parity.txt","w");
+	string Pname="Parity_"+to_string(68*Z)+".txt";
+	char Pname_[Pname.length()];
+	for(int i=0;i<Pname.length();i++)Pname_[i]=Pname[i];
+	Pname_[Pname.length()]=0;
+	FILE* file=fopen(Pname_,"w");
 	for(register int i=0;i<46*Z;i++)
 	{
 		int n_=68*Z;
@@ -114,7 +105,11 @@ int main(){
 		}
 		shazm++;
 	}//end of i,j.
-	file=fopen("Generator.txt","w");
+	string Gname="Generator_"+to_string(68*Z)+".txt";
+	char Gname_[Gname.length()];
+	for(int i=0;i<Gname.length();i++)Gname_[i]=Gname[i];
+	Gname_[Gname.length()]=0;
+	file=fopen(Gname_,"w");
 	print(file,Gr);
 	fclose(file);
 	return 0;
