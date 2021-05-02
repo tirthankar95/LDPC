@@ -5,7 +5,7 @@ import numpy as np
 import math
 import Global
 import threading
-from DecoderHelper import ATANH,tanh_mine,atanh_mine,atanh_mine_poly,genAll,demod,MIN,atanh_NNtrain
+from DecoderHelper import ATANH,tanh_mine,atanh_mine,atanh_mine_poly,atanh_mine_NN,genAll,demod,MIN,atanh_NNtrain
 
 alpha=0.5;beta=0.5
 ITER=10;lowerLimit=4;mx_iter=5
@@ -78,7 +78,7 @@ def decode(H,c_Rx,std):
                 L=np.tanh(L/2)
                 L_ = np.nanprod(L, axis=1).reshape(Global.n - Global.k, 1)
                 L = np.divide(L_, L)
-                L = 2*atanh_mine_poly(L)
+                L = 2*atanh_mine_NN(L)
                 lin = (lin + np.nansum(L, axis=0)).reshape(1, Global.n)
                 L = lin - L
             d_bits[model] = demod(lin)
@@ -111,8 +111,8 @@ def RUN(i_upper,name):
         Global.code_err[model][i_upper-lowerLimit]=1-Global.code_err[model][i_upper-lowerLimit]/c_Rx.shape[0]
 ######################## MAIN ################################
 tmp=[]
-atanh_NNtrain();
-genAll(50)
+atanh_NNtrain()
+genAll(1000)
 H,c_encoded=hg1.encode(Global.msg)
 #Decoding
 Global.code_err=[[0 for i in range(lowerLimit,ITER)] for j in range(MODEL)]
