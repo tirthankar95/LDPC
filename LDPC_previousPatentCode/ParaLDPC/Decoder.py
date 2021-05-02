@@ -112,7 +112,7 @@ def RUN(i_upper,name):
 ######################## MAIN ################################
 tmp=[]
 atanh_NNtrain();
-genAll(tmp,32)
+genAll(50)
 H,c_encoded=hg1.encode(Global.msg)
 #Decoding
 Global.code_err=[[0 for i in range(lowerLimit,ITER)] for j in range(MODEL)]

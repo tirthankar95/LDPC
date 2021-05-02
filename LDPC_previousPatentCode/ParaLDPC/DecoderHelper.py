@@ -41,26 +41,10 @@ def atanh_mine(x):
 #My approximation of atanh_mine_poly using ML methods.
 def atanh_mine_poly(x):
     return 3.91*x-2.72*x+1.48*x
-#Functions used for generating message bits.
-def genAllUtil(tmp,k,num):
-    if k==0:
-        Global.msg.append(list(tmp))
-        Global.example_cnt=Global.example_cnt+1
-        return
-    tmp.append(0)
-    genAllUtil(tmp,k-1,num)
-    if Global.example_cnt==num:
-        return
-    tmp.pop()
-    tmp.append(1)
-    genAllUtil(tmp,k-1,num)
-    if Global.example_cnt==num:
-        return
-    tmp.pop()
-def genAll(tmp,m):
+def genAll(m):
     Global.msg=[];Global.example_cnt=0
     num=min(2**Global.k,m)
-    genAllUtil(tmp,Global.k,num)
+    Global.msg=np.random.randint(low=0,high=2,size=(num,Global.k)).tolist()
 # General helper functions.
 def demod(approx):
     res=approx
